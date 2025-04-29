@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stego Secrets: Level 2</title>
+  <style>
+    body {
+      background-color: #0a0f1c; 
+      color: #00e0ff;  
+      font-family: 'Courier New', monospace;
+      text-align: center;
+    }
+
+    h1 {
+      color: #00e0ff; 
+      font-size: 48px;
+      margin-bottom: 0;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    a {
+      color: #00e0ff;
+      font-size: 22px;
+      text-decoration: none;
+      margin-top: 20px;
+      display: inline-block;
+      border: 2px solid #00e0ff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      background-color: #003333;
+    }
+
+    hr {
+      border-top: 2px solid #00e0ff;
+      width: 80%;
+      margin: 40px auto;
+    }
+
+    .hint-btn {
+      background-color: #00e0ff;
+      color: #0a0f1c;
+      padding: 15px 25px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 20px;
+      font-size: 18px;
+      display: inline-block;
+    }
+
+    .hint-btn:hover {
+      background-color: #ff9900;
+    }
+
+    /* Button container */
+    .button-container {
+      margin-top: 30px;
+    }
+
+    /* Flag input styling */
+    .flag-input-container {
+      margin-top: 30px;
+    }
+
+    .flag-input {
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 5px;
+      border: 2px solid #00e0ff;
+      background-color: #003333;
+      color: #00e0ff;
+    }
+
+    .submit-btn {
+      background-color: #00e0ff;
+      color: #0a0f1c;
+      padding: 15px 25px;
+      border-radius: 5px;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .submit-btn:hover {
+      background-color: #ff9900;
+    }
+
+    .response-message {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ff0000;
+    }
+
+    .correct-response {
+      color: #00ff00;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Level 2</h1>
+  <p>This challenge is slightly different from the previous one. You will not find the flag in the properties or metadata. This time, you need to find the image that is hidden within the visual layers. Again, the flag is in the format ctf{randomtext}</p>
+
+  <div class="button-container">
+    <a href="/download2">📁 Download the Challenge Image</a>
+  </div>
+
+  <div class="button-container">
+    <a class="hint-btn" href="javascript:void(0)" onclick="alert('Try using tools like StegSolve or StegSecret to reveal the flag!')">Get a Hint</a>
+  </div>
+
+  <hr>
+
+  <!-- Flag Submission Section -->
+  <div class="flag-input-container">
+    <p>Enter the flag here:</p>
+    <input class="flag-input" id="flagInput" type="text" placeholder="Enter flag..." />
+    <button class="submit-btn" onclick="checkFlag()">Submit Flag</button>
+  </div>
+
+  <div id="responseMessage" class="response-message"></div>
+
+  <script>
+    function checkFlag() {
+      const correctFlag = "ctf{layered_secret_found}";
+      const userFlag = document.getElementById("flagInput").value.trim();
+      const responseMessage = document.getElementById("responseMessage");
+
+      if (userFlag === correctFlag) {
+        responseMessage.textContent = "Correct! You found the flag!";
+        responseMessage.className = "response-message correct-response";
+        responseMessage.innerHTML += '<br><a href="/level3" style="color: #00e0ff;">Go to Level 3</a>';
+      } else {
+        responseMessage.textContent = "Try again. The flag is incorrect.";
+        responseMessage.className = "response-message";
+      }
+    }
+  </script>
+
+</body>
+</html>
